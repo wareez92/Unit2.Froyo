@@ -1,28 +1,37 @@
-function froyoFlavors(){
 
-    // Prompt User for froyo flavors
-    let chooseFlavors = prompt("What flavors do you want?", "vanilla, vanilla, vanilla, chocolate, strawberry")
-    
-    // Parse the user input into an array of froyo flavors
-    
-    const chosenFlavors = chooseFlavors.split(",");
-    
+// Prompt User for froyo flavors
+
+let chooseFlavors = prompt("What flavors do you want?", "vanilla, vanilla, vanilla, chocolate, strawberry");
+
+// Parse the user input into an array of froyo flavors
+
+const chosenFlavors = chooseFlavors.split(", ");
+
+
+
+
+function froyoFlavors() {
+
+
     // Object that tracks how many flavors there are
-    
     const checkFlavors = {};
-    
-    // Loops thru the array and updates 
-    
-    for (let i = 0; i < chosenFlavors.length; i++) {
-        if (chosenFlavors[i] === checkFlavors){
-            chosenFlavors[i]++;
+
+    // For every flavor in the checkFlavors object increment the flavors by a value 
+    //1 and if the same flavor is added multiple times keep incrementing its value 
+    for (const flavor of chosenFlavors) {
+        console.log(flavor)
+        if (checkFlavors[flavor]) {
+            checkFlavors[flavor]++;
         }
-        else (chosenFlavors[i] != checkFlavors){
-            chosenFlavors[i] = 1;
+        else {
+            checkFlavors[flavor] = 1;
         }
+
     }
-    
-    }
+    return checkFlavors;
+
+}
+
 // A table that shows how many of each flavor was ordered
 
-console.table(froyoFlavors)
+console.table(froyoFlavors());
